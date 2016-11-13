@@ -24,8 +24,6 @@ SOFTWARE.
 
 #include "ot.h"
 
-#ifdef HAS_CODECVT_HEADER
-
 #include "../../Bricks/dflags/dflags.h"
 #include "../../Bricks/file/file.h"
 
@@ -101,14 +99,3 @@ int main(int argc, char** argv) {
 
   current::utils::ot::OT(current::FileSystem::ReadFileAsString(FLAGS_input), Processor());
 }
-
-#else
-
-#include <iostream>
-
-int main() {
-  std::cerr << "Requires g++ >= 5.1 or a different compiler." << std::endl;
-  return -1;
-}
-
-#endif  // HAS_CODECVT_HEADER

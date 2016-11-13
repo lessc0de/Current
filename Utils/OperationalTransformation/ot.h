@@ -27,8 +27,6 @@ SOFTWARE.
 
 #include "../../port.h"
 
-#ifdef HAS_CODECVT_HEADER
-
 #include "../../TypeSystem/Serialization/json.h"
 
 #include <deque>
@@ -125,7 +123,5 @@ inline std::string OT(const std::string& json) {
 }  // namespace current::utils::ot
 }  // namespace current::utils
 }  // namespace current
-
-#endif  // HAS_CODECVT_HEADER
 
 #endif  // UTILS_OPERATIONAL_TRANSFORMATION_H

@@ -26,9 +26,6 @@ SOFTWARE.
 
 #include "../../3rdparty/gtest/gtest-main.h"
 
-// Basically, disable this test on clang++@Linux@Travis, because header f*ckup. -- D.K.
-#if defined(HAS_CODECVT_HEADER) && !(defined(__clang__) && defined(CURRENT_LINUX) && defined(CURRENT_CI))
-
 #include "ot.h"
 #include "../../Bricks/file/file.h"
 
@@ -37,11 +34,3 @@ TEST(OperationalTransformation, Golden) {
             current::utils::ot::OT(
                 current::FileSystem::ReadFileAsString(current::FileSystem::JoinPath("golden", "data.ot"))));
 }
-
-#else
-
-TEST(OperationalTransformation, DISABLED_GoldenTestDueToNoHeaderInLibStdCPlusPlus) {
-  // Will print a yellow "You have 1 disabled test." to the console. That's all we need.
-}
-
-#endif  // defined(HAS_CODECVT_HEADER) && !(defined(__clang__) && defined(CURRENT_LINUX) && defined(CURRENT_CI))
